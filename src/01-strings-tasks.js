@@ -58,8 +58,8 @@ function getStringFromTemplate(f, l) {
  *   'Hello, John Doe!' => 'John Doe'
  *   'Hello, Chuck Norris!' => 'Chuck Norris'
  */
-function extractNameFromTemplate(/* value */) {
-
+function extractNameFromTemplate(value) {
+  return value.split(' ').slice(1).map((el) => el.replace('!', '')).join(' ');
 }
 
 
