@@ -1,10 +1,3 @@
-/* *******************************************************************************************
- *                                                                                           *
- * Plese read the following tutorial before implementing tasks:                              *
- * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String   *
- *                                                                                           *
- ******************************************************************************************* */
-
 
 /**
  * Returns the result of concatenation of two strings.
@@ -18,8 +11,8 @@
  *   'aa',''    => 'aa'
  *   '',  'bb'  => 'bb'
  */
-function concatenateStrings( value1, value2 ) {
-  return value1+value2
+function concatenateStrings(v1, v2) {
+  return v1 + v2;
 }
 
 
@@ -34,8 +27,8 @@ function concatenateStrings( value1, value2 ) {
  *   'b'     => 1
  *   ''      => 0
  */
-function getStringLength(/* value */) {
-  throw new Error('Not implemented');
+function getStringLength(v) {
+  return v.length;
 }
 
 /**
@@ -51,8 +44,8 @@ function getStringLength(/* value */) {
  *   'John','Doe'      => 'Hello, John Doe!'
  *   'Chuck','Norris'  => 'Hello, Chuck Norris!'
  */
-function getStringFromTemplate(/* firstName, lastName */) {
-  throw new Error('Not implemented');
+function getStringFromTemplate(f, l) {
+  return `Hello, ${f} ${l}!`;
 }
 
 /**
@@ -66,7 +59,7 @@ function getStringFromTemplate(/* firstName, lastName */) {
  *   'Hello, Chuck Norris!' => 'Chuck Norris'
  */
 function extractNameFromTemplate(/* value */) {
-  throw new Error('Not implemented');
+
 }
 
 
@@ -80,8 +73,8 @@ function extractNameFromTemplate(/* value */) {
  *   'John Doe'  => 'J'
  *   'cat'       => 'c'
  */
-function getFirstChar(/* value */) {
-  throw new Error('Not implemented');
+function getFirstChar(v) {
+  return v[0];
 }
 
 /**
@@ -96,7 +89,7 @@ function getFirstChar(/* value */) {
  *   '\tHello, World! ' => 'Hello, World!'
  */
 function removeLeadingAndTrailingWhitespaces(/* value */) {
-  throw new Error('Not implemented');
+
 }
 
 /**
@@ -111,7 +104,7 @@ function removeLeadingAndTrailingWhitespaces(/* value */) {
  *   'cat', 3 => 'catcatcat'
  */
 function repeatString(/* value, count */) {
-  throw new Error('Not implemented');
+
 }
 
 /**
@@ -127,7 +120,7 @@ function repeatString(/* value, count */) {
  *   'ABABAB','BA' => 'ABAB'
  */
 function removeFirstOccurrences(/* str, value */) {
-  throw new Error('Not implemented');
+
 }
 
 /**

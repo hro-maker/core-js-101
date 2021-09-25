@@ -1,12 +1,3 @@
-/* ************************************************************************************************
- *                                                                                                *
- * Plese read the following tutorial before implementing tasks:                                   *
- * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer *
- * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object        *
- *                                                                                                *
- ************************************************************************************************ */
-
-
 /**
  * Returns the rectagle object with width and height parameters and getArea() method
  *
@@ -69,7 +60,8 @@ function fromJSON(/* proto, json */) {
  * All types of selectors can be combined using the combinators ' ','+','~','>' .
  *
  * The task is to design a single class, independent classes or classes hierarchy
- * and implement the functionality to build the css selectors using the provided cssSelectorBuilder.
+ * and implement the functionality to build
+ * the css selectors using the provided cssSelectorBuilder.
  * Each selector should have the stringify() method to output the string repsentation
  * according to css specification.
  *
@@ -105,7 +97,8 @@ function fromJSON(/* proto, json */) {
  *           )
  *      )
  *  ).stringify()
- *    => 'div#main.container.draggable + table#data ~ tr:nth-of-type(even)   td:nth-of-type(even)'
+ *    => 'div#main.container.draggable + table#data ~ tr:nth-of-type(even)
+ *  td:nth-of-type(even)'
  *
  *  For more examples see unit tests.
  */

@@ -1,12 +1,3 @@
-/* *************************************************************************************************
- *                                                                                                *
- * Plese read the following tutorial before implementing tasks:                                   *
- * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling  *
- * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration              *
- *                                                                                                *
- ************************************************************************************************ */
-
-
 /**
  * Returns the 'Fizz','Buzz' or an original number using the following rules:
  * 1) return original number
@@ -102,7 +93,7 @@ function isTriangle(/* a, b, c */) {
  *     -------------
  *        width=20
  *
- * NOTE: Please use canvas coordinate space (https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes#The_grid),
+
  * it differs from Cartesian coordinate system.
  *
  * @param {object} rect1

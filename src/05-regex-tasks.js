@@ -1,14 +1,3 @@
-/* *******************************************************************************************
- *                                                                                           *
- * Plese read the following tutorial before implementing tasks:                              *
- * https://developer.mozilla.org/en/docs/Web/JavaScript/Guide/Regular_Expressions            *
- *                                                                                           *
- * You can use the next web site in order to check and build regexps:                        *
- * https://regexr.com                                                                        *
- *                                                                                           *
- ******************************************************************************************* */
-
-
 /**
  * Returns the regexp that matches a GUID string representation
  * '{XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX}',

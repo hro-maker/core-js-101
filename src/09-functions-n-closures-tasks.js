@@ -1,14 +1,3 @@
-/* *********************************************************************************************
- *                                                                                             *
- * Plese read the following tutorial before implementing tasks:                                *
- * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions                     *
- * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function   *
- * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments       *
- * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures                            *
- *                                                                                             *
- ********************************************************************************************* */
-
-
 /**
  * Returns the functions composition of two specified functions f(x) and g(x).
  * The result of compose is to be a function of one argument, (lets call the argument x),
@@ -45,7 +34,7 @@ function getComposition(/* f, g */) {
  *
  */
 function getPowerFunction(/* exponent */) {
-  throw new Error('Not implemented');
+
 }
 
 
@@ -63,7 +52,7 @@ function getPowerFunction(/* exponent */) {
  *   getPolynom()      => null
  */
 function getPolynom() {
-  throw new Error('Not implemented');
+
 }
 
 
@@ -130,7 +119,7 @@ function retry(/* func, attempts */) {
  *
  */
 function logger(/* func, logFunc */) {
-  throw new Error('Not implemented');
+
 }
 
 
@@ -148,7 +137,7 @@ function logger(/* func, logFunc */) {
  *   partialUsingArguments(fn, 'a','b','c','d')() => 'abcd'
  */
 function partialUsingArguments(/* fn, ...args1 */) {
-  throw new Error('Not implemented');
+
 }
 
 
