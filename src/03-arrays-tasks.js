@@ -185,15 +185,8 @@ function getTail(a, n) {
  *    +'20,21,22,23,24\n'
  *    +'30,31,32,33,34'
  */
-function toCsvText(arr) {
-  return arr.reduce((acc, el, i, array) => {
-    if (i !== array.length - 1) {
-      acc += `${el.join()}\n`;
-    } else {
-      acc += `${el.join()}`;
-    }
-    return acc;
-  }, '');
+function toCsvText() {
+  throw new Error('Not implemented');
 }
 
 /**
