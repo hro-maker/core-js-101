@@ -16,7 +16,6 @@ function getComposition(f, g) {
   return (x) => f(g(x));
 }
 
-
 /**
  * Returns the math power function with the specified exponent
  *
@@ -33,10 +32,9 @@ function getComposition(f, g) {
  *   power05(16) => 4
  *
  */
-function getPowerFunction(/* exponent */) {
-
+function getPowerFunction(v) {
+  return (d) => d ** v;
 }
-
 
 /**
  * Returns the polynom function of one argument based on specified coefficients.
@@ -51,10 +49,15 @@ function getPowerFunction(/* exponent */) {
  *   getPolynom(8)     => y = 8
  *   getPolynom()      => null
  */
-function getPolynom() {
-
+function getPolynom(...arg) {
+  return (x) => {
+    let sum = 0;
+    [...arg].reverse().forEach((el, index) => {
+      sum += el * x ** index;
+    });
+    return sum;
+  };
 }
-
 
 /**
  * Memoizes passed function and returns function
@@ -74,7 +77,6 @@ function memoize(/* func */) {
   throw new Error('Not implemented');
 }
 
-
 /**
  * Returns the function trying to call the passed function and if it throws,
  * retrying it specified number of attempts.
@@ -93,7 +95,6 @@ function memoize(/* func */) {
 function retry(/* func, attempts */) {
   throw new Error('Not implemented');
 }
-
 
 /**
  * Returns the logging wrapper for the specified method,
@@ -118,10 +119,9 @@ function retry(/* func, attempts */) {
  * cos(3.141592653589793) ends
  *
  */
-function logger(/* func, logFunc */) {
-
+function logger(/* func, log */) {
+  throw new Error('Not implemented');
 }
-
 
 /**
  * Return the function with partial applied arguments
@@ -139,7 +139,6 @@ function logger(/* func, logFunc */) {
 function partialUsingArguments(fn, ...args) {
   return (...args2) => fn.call(null, ...args, ...args2);
 }
-
 
 /**
  * Returns the id generator function that returns next integer starting
@@ -165,7 +164,6 @@ function getIdGeneratorFunction(start) {
     return count;
   };
 }
-
 
 module.exports = {
   getComposition,

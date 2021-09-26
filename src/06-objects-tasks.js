@@ -11,10 +11,13 @@
  *    console.log(r.height);      // => 20
  *    console.log(r.getArea());   // => 200
  */
-function Rectangle(/* width, height */) {
-  throw new Error('Not implemented');
+function Rectangle(w, h) {
+  this.width = w;
+  this.height = h;
+  this.getArea = function () {
+    return this.width * this.height;
+  };
 }
-
 
 /**
  * Returns the JSON representation of specified object
@@ -30,7 +33,6 @@ function getJSON(/* obj */) {
   throw new Error('Not implemented');
 }
 
-
 /**
  * Returns the object of specified type from JSON representation
  *
@@ -45,7 +47,6 @@ function getJSON(/* obj */) {
 function fromJSON(/* proto, json */) {
   throw new Error('Not implemented');
 }
-
 
 /**
  * Css selectors builder
@@ -132,7 +133,6 @@ const cssSelectorBuilder = {
     throw new Error('Not implemented');
   },
 };
-
 
 module.exports = {
   Rectangle,

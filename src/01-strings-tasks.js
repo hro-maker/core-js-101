@@ -1,4 +1,3 @@
-
 /**
  * Returns the result of concatenation of two strings.
  *
@@ -14,7 +13,6 @@
 function concatenateStrings(v1, v2) {
   return v1 + v2;
 }
-
 
 /**
  * Returns the length of given string.
@@ -59,9 +57,12 @@ function getStringFromTemplate(f, l) {
  *   'Hello, Chuck Norris!' => 'Chuck Norris'
  */
 function extractNameFromTemplate(value) {
-  return value.split(' ').slice(1).map((el) => el.replace('!', '')).join(' ');
+  return value
+    .split(' ')
+    .slice(1)
+    .map((el) => el.replace('!', ''))
+    .join(' ');
 }
-
 
 /**
  * Returns a first char of the given string.
@@ -88,8 +89,8 @@ function getFirstChar(v) {
  *   'cat'              => 'cat'
  *   '\tHello, World! ' => 'Hello, World!'
  */
-function removeLeadingAndTrailingWhitespaces(/* value */) {
-
+function removeLeadingAndTrailingWhitespaces(v) {
+  return v.replace(/[^a-z,! ]/gi, '').trim();
 }
 
 /**
@@ -103,8 +104,8 @@ function removeLeadingAndTrailingWhitespaces(/* value */) {
  *   'A', 5  => 'AAAAA'
  *   'cat', 3 => 'catcatcat'
  */
-function repeatString(/* value, count */) {
-
+function repeatString(v, c) {
+  return v.repeat(c);
 }
 
 /**
@@ -119,8 +120,8 @@ function repeatString(/* value, count */) {
  *   'I like legends', 'end' => 'I like legs',
  *   'ABABAB','BA' => 'ABAB'
  */
-function removeFirstOccurrences(/* str, value */) {
-
+function removeFirstOccurrences(str, val) {
+  return str.replace(val, '');
 }
 
 /**
@@ -137,7 +138,6 @@ function removeFirstOccurrences(/* str, value */) {
 function unbracketTag(/* str */) {
   throw new Error('Not implemented');
 }
-
 
 /**
  * Converts all characters of the specified string into the upper case
@@ -199,7 +199,6 @@ function getRectangleString(/* width, height */) {
   throw new Error('Not implemented');
 }
 
-
 /**
  * Encode specified string with ROT13 cipher
  * See details:  https://en.wikipedia.org/wiki/ROT13
@@ -237,7 +236,6 @@ function isString(/* value */) {
   throw new Error('Not implemented');
 }
 
-
 /**
  * Returns playid card id.
  *
@@ -265,7 +263,6 @@ function isString(/* value */) {
 function getCardId(/* value */) {
   throw new Error('Not implemented');
 }
-
 
 module.exports = {
   concatenateStrings,
