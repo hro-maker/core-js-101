@@ -135,8 +135,8 @@ function removeFirstOccurrences(str, val) {
  *   '<span>' => 'span'
  *   '<a>' => 'a'
  */
-function unbracketTag(/* str */) {
-  throw new Error('Not implemented');
+function unbracketTag(str) {
+  return str.slice(1, str.length - 1);
 }
 
 /**
@@ -149,8 +149,8 @@ function unbracketTag(/* str */) {
  *   'Thunderstruck' => 'THUNDERSTRUCK'
  *  'abcdefghijklmnopqrstuvwxyz' => 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
  */
-function convertToUpperCase(/* str */) {
-  throw new Error('Not implemented');
+function convertToUpperCase(str) {
+  return str.toUpperCase();
 }
 
 /**
@@ -168,8 +168,8 @@ function convertToUpperCase(/* str */) {
  *   ],
  *   'info@gmail.com' => ['info@gmail.com']
  */
-function extractEmails(/* str */) {
-  throw new Error('Not implemented');
+function extractEmails(str) {
+  return str.split(';');
 }
 
 /**
@@ -195,8 +195,15 @@ function extractEmails(/* str */) {
  *             '└──────────┘\n'
  *
  */
-function getRectangleString(/* width, height */) {
-  throw new Error('Not implemented');
+function getRectangleString(w, h) {
+  let firstWall = `┌${'─'.repeat(w - 2)}┐\n`;
+  const borderWall = `│${' '.repeat(w - 2)}│\n`;
+  const lastWall = `└${'─'.repeat(w - 2)}┘\n`;
+
+  for (let i = 0; i < h - 2; i += 1) {
+    firstWall += borderWall;
+  }
+  return firstWall + lastWall;
 }
 
 /**
@@ -215,8 +222,16 @@ function getRectangleString(/* width, height */) {
  *    => 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'
  *
  */
-function encodeToRot13(/* str */) {
-  throw new Error('Not implemented');
+function encodeToRot13(str) {
+  const one = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+  const base = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm';
+  const obj = one
+    .split('')
+    .reduce((acc, n, i) => ({ ...acc, [n]: base.split('')[i] }), {});
+  return str
+    .split('')
+    .map((el) => (el in obj ? obj[el] : el))
+    .join('');
 }
 
 /**
