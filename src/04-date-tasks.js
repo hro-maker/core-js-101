@@ -10,8 +10,8 @@
  *    'Tue, 26 Jan 2016 13:48:02 GMT' => Date()
  *    'Sun, 17 May 1998 03:00:00 GMT+01' => Date()
  */
-function parseDataFromRfc2822(/* value */) {
-  throw new Error('Not implemented');
+function parseDataFromRfc2822(value) {
+  return new Date(value);
 }
 
 /**
@@ -28,7 +28,6 @@ function parseDataFromRfc2822(/* value */) {
 function parseDataFromIso8601(/* value */) {
   throw new Error('Not implemented');
 }
-
 
 /**
  * Returns true if specified date is leap year and false otherwise
@@ -47,7 +46,6 @@ function parseDataFromIso8601(/* value */) {
 function isLeapYear(/* date */) {
   throw new Error('Not implemented');
 }
-
 
 /**
  * Returns the string represention of the timespan between two dates.
@@ -68,7 +66,6 @@ function timeSpanToString(/* startDate, endDate */) {
   throw new Error('Not implemented');
 }
 
-
 /**
  * Returns the angle (in radians) between the hands of an analog clock
  * for the specified Greenwich time.
@@ -85,10 +82,17 @@ function timeSpanToString(/* startDate, endDate */) {
  *    Date.UTC(2016,3,5,18, 0) => Math.PI
  *    Date.UTC(2016,3,5,21, 0) => Math.PI/2
  */
-function angleBetweenClockHands(/* date */) {
-  throw new Error('Not implemented');
+function angleBetweenClockHands(date) {
+  const hour1 = 1000 * 60 * 60 * 12;
+  const minute1 = 1000 * 60 * 60;
+  const hour2 = (360 * (date % hour1)) / hour1;
+  const minute2 = (360 * (date % minute1)) / minute1;
+  let item = Math.abs(minute2 - hour2);
+  if (item > 180) {
+    item = 360 - item;
+  }
+  return (item * 2 * Math.PI) / 360;
 }
-
 
 module.exports = {
   parseDataFromRfc2822,
