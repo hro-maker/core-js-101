@@ -106,33 +106,93 @@ function fromJSON(proto, json) {
  *  For more examples see unit tests.
  */
 
+function error(turn1, turn2, name1, name2) {
+  if (turn1 > turn2) {
+    throw new Error(
+      'Selector parts should be arranged in the following order: element, id, class, attribute, pseudo-class, pseudo-element',
+    );
+  }
+  if (
+    (name1 === name2 && name1 === 'element')
+    || name1 === 'id'
+    || name1 === 'pseudoElement'
+  ) {
+    throw new Error(
+      'Element, id and pseudo-element should not occur more then one time inside the selector',
+    );
+  }
+}
+
 const cssSelectorBuilder = {
-  element(/* value */) {
-    throw new Error('Not implemented');
+  value: '',
+
+  element(value) {
+    const turn = 1;
+    const name = 'element';
+    error(this.turn, turn, this.name, name);
+    const obj = Object.create(cssSelectorBuilder);
+    obj.value = this.value + value;
+    obj.turn = turn;
+    obj.name = name;
+    return obj;
   },
 
-  id(/* value */) {
-    throw new Error('Not implemented');
+  id(value) {
+    const turn = 2;
+    const name = 'id';
+    error(this.turn, turn, this.name, name);
+    const obj = Object.create(cssSelectorBuilder);
+    obj.value = `${this.value}#${value}`;
+    obj.turn = turn;
+    obj.name = name;
+    return obj;
   },
 
-  class(/* value */) {
-    throw new Error('Not implemented');
+  class(value) {
+    const turn = 3;
+    error(this.turn, turn);
+    const obj = Object.create(cssSelectorBuilder);
+    obj.value = `${this.value}.${value}`;
+    obj.turn = turn;
+    return obj;
   },
 
-  attr(/* value */) {
-    throw new Error('Not implemented');
+  attr(value) {
+    const turn = 4;
+    error(this.turn, turn);
+    const obj = Object.create(cssSelectorBuilder);
+    obj.value = `${this.value}[${value}]`;
+    obj.turn = turn;
+    return obj;
   },
 
-  pseudoClass(/* value */) {
-    throw new Error('Not implemented');
+  pseudoClass(value) {
+    const turn = 5;
+    error(this.turn, turn);
+    const obj = Object.create(cssSelectorBuilder);
+    obj.value = `${this.value}:${value}`;
+    obj.turn = turn;
+    return obj;
   },
 
-  pseudoElement(/* value */) {
-    throw new Error('Not implemented');
+  pseudoElement(value) {
+    const turn = 6;
+    const name = 'pseudoElement';
+    error(this.turn, turn, this.name, name);
+    const obj = Object.create(cssSelectorBuilder);
+    obj.value = `${this.value}::${value}`;
+    obj.turn = turn;
+    obj.name = name;
+    return obj;
   },
 
-  combine(/* selector1, combinator, selector2 */) {
-    throw new Error('Not implemented');
+  combine(selector1, combinator, selector2) {
+    const obj = Object.create(cssSelectorBuilder);
+    obj.value = `${selector1.value} ${combinator} ${selector2.value}`;
+    return obj;
+  },
+  stringify() {
+    return this.value;
   },
 };
 

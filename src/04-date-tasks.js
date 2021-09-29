@@ -25,8 +25,8 @@ function parseDataFromRfc2822(value) {
  *    '2016-01-19T16:07:37+00:00'    => Date()
  *    '2016-01-19T08:07:37Z' => Date()
  */
-function parseDataFromIso8601(/* value */) {
-  throw new Error('Not implemented');
+function parseDataFromIso8601(value) {
+  return new Date(value);
 }
 
 /**
@@ -43,8 +43,9 @@ function parseDataFromIso8601(/* value */) {
  *    Date(2012,1,1)    => true
  *    Date(2015,1,1)    => false
  */
-function isLeapYear(/* date */) {
-  throw new Error('Not implemented');
+function isLeapYear(date) {
+  const year = date.getFullYear();
+  return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
 }
 
 /**
@@ -62,8 +63,25 @@ function isLeapYear(/* date */) {
  *    Date(2000,1,1,10,0,0),  Date(2000,1,1,10,0,0,250)     => "00:00:00.250"
  *    Date(2000,1,1,10,0,0),  Date(2000,1,1,15,20,10,453)   => "05:20:10.453"
  */
-function timeSpanToString(/* startDate, endDate */) {
-  throw new Error('Not implemented');
+function timeSpanToString(startDate, endDate) {
+  const date = endDate - startDate;
+  let hour = parseInt(date / 60 / 60 / 1000, 10);
+  let min = parseInt(date / 1000 / 60 - hour * 60, 10);
+  let sec = parseInt(date / 1000 - min * 60 - hour * 60 * 60, 10);
+  let milsec = date - 1000 * (hour * 3600 + min * 60 + sec);
+  if (hour.toString().length < 2) {
+    hour = '0'.repeat(2 - hour.toString().length) + hour.toString();
+  }
+  if (min.toString().length < 2) {
+    min = '0'.repeat(2 - min.toString().length) + min.toString();
+  }
+  if (sec.toString().length < 2) {
+    sec = '0'.repeat(2 - sec.toString().length) + sec.toString();
+  }
+  if (milsec.toString().length < 3) {
+    milsec = '0'.repeat(3 - milsec.toString().length) + milsec.toString();
+  }
+  return `${hour}:${min}:${sec}.${milsec}`;
 }
 
 /**
